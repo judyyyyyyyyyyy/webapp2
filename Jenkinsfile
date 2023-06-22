@@ -41,9 +41,20 @@ pipeline{
                 script{
 
                     withSonarQubeEnv(credentialsId: 'sonarqube-api'){
-                        
+
                         sh 'mvn clean package sonar:sonar'
                     }
+                }
+            }
+        }
+        stage('Quality Gate status'){
+
+            steps{
+
+                script{
+
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-api'
+
                 }
             }
         }
