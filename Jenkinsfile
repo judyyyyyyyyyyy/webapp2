@@ -39,8 +39,11 @@ pipeline{
             steps{
 
                 script{
-
-                    withSonarQubeEnv(credentialsId: 'sonarqube-api')
+                   withSonarQubeEnv('sonarqube-api') {
+                   sh" ${SCANNER_HOME**}/bin/sonar-scanner \
+                   -Dsonar.projectKey=webapp_deployment \
+                   -Dsonar.sources=. "
+                   }
                 }
             }
         }
