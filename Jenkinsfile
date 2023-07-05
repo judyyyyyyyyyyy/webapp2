@@ -39,11 +39,9 @@ pipeline{
             steps{
 
                 script{
-                   withSonarQubeEnv('sonarqube-api') {
-                   sh" ${SCANNER_HOME**}/bin/sonar-scanner \
-                   -Dsonar.projectKey=webapp_deployment \
-                   -Dsonar.sources=. "
-                   }
+                    withSonarQubeEnv(credentialsId: 'sonarqube-api') {
+                        sh 'mvn clean package sonar"sonar'
+                    }
                 }
             }
         }
