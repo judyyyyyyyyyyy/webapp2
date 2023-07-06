@@ -34,7 +34,6 @@ pipeline{
                 }
             }
         }
-        /*
         stage('Static code analysis'){
 
             steps{
@@ -67,7 +66,6 @@ pipeline{
                 }
             }
         }
-        */
         stage('Nexus artifact upload'){
 
             steps{
