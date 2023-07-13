@@ -130,8 +130,8 @@ pipeline{
                     dir('eks_module'){
                         sh """
                         terraform init
-                        terraform plan --var-file="./config/terraform.tfvars"
-                        terraform apply --var-file="./config/terraform.tfvars" --auto-approve
+                        terraform plan -var "access_key=$ACESS_KEY" -var "secret_key=$SECRET_KEY" --var-file="./config/terraform.tfvars"
+                        terraform apply -var "access_key=$ACESS_KEY" -var "secret_key=$SECRET_KEY" --var-file="./config/terraform.tfvars" --auto-approve
                         """
                     }
                 }
