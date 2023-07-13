@@ -122,7 +122,7 @@ pipeline{
                 }
             }
         }
-        stage('EKS'){
+        stage('EKS Module'){
 
             steps{
 
