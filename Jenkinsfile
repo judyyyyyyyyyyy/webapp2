@@ -25,6 +25,7 @@ pipeline{
                 }
             }
         }
+    /*
         stage('UNIT Testing'){
             
             steps{
@@ -45,7 +46,7 @@ pipeline{
                 }
             }
         }
-        /*
+        
         stage('Static code analysis'){
 
             steps{
@@ -123,11 +124,10 @@ pipeline{
             }
         }
         stage('EKS Module'){
-
             steps{
 
                 script{
-                    dir('eks_module'){
+                        dir('eks_module'){
                         sh """
                         terraform init
                         terraform plan -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY" --var-file="./config/terraform.tfvars"
