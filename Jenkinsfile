@@ -112,7 +112,7 @@ pipeline{
 
                     sh """
                     aws configure set aws_access_key_id "$ACCESS_KEY"
-                    aws configure set aws_secret_key_id "$SECRET_KEY"
+                    aws configure set aws_secret_access_key "$SECRET_KEY"
                     aws configure set region "${params.region}"
                     aws ecr get-login-password --region ${params.region} | docker login --username AWS --password-stdin 996864587356.dkr.ecr.${params.region}.amazonaws.com
                     docker build -t webapp .
